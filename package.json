@@ -4,8 +4,10 @@
   "description": "## Description",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "coffee --compile --output ./ ./"
+    "watch": "nodemon --ext coffee --exec 'npm run start'",
+    "build": "coffee --compile --output ./ ./",
+    "exec" : "node server.js",
+    "start": "npm run build && npm run exec"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "coffeescript": "^2.5.1"
+    "coffeescript": "^2.5.1",
+    "nodemon": "^2.0.6"
   }
 }
