@@ -4,9 +4,9 @@
   "description": "## Description",
   "main": "server.js",
   "scripts": {
-    "watch": "nodemon --ext coffee --exec 'npm run start'",
-    "build": "coffee --compile --output ./ ./",
-    "exec" : "node server.js",
+    "watch": "nodemon lib/ --exec 'npm run start'",
+    "build": "coffee --compile --output ./lib ./src",
+    "exec" : "node src/server.js",
     "start": "npm run build && npm run exec"
   },
   "repository": {
