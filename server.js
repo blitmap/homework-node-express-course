@@ -16,6 +16,8 @@
     };
   }
 
+  app.use(express.json());
+
   app.get('/users', function(req, res) {
     return res.json({
       success: true,
@@ -31,6 +33,25 @@
       message: 'got one user',
       user: req.params.id
     });
+  });
+
+  app.post('/login', function(req, res) {
+    var mockPassword, mockUsername, password, username;
+    ({username, password} = req.body);
+    mockUsername = "billyTheKid";
+    mockPassword = "superSecret";
+    if ((username === mockUsername) && (password === mockPassword)) {
+      return res.json({
+        success: true,
+        message: 'password and username match!',
+        token: 'encrypted token goes here'
+      });
+    } else {
+      return res.json({
+        success: false,
+        message: 'password and username do not match'
+      });
+    }
   });
 
   app.listen(8000, function() {
